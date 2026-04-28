@@ -13,3 +13,8 @@ updates
     - made a container on index to dispaly the available course and changed themes for a cybpunk feel
     - full theme reset for cyberpunk feel
     - added button styling
+
+0.4
+    - added 6 users to the databse, 3 teachers and 3 students 
+    - created the login page to redirect base off role of user
+    - added a script to create and populate a sample mongoDB databse using the collections I have been testing with
