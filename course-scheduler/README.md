@@ -7,3 +7,9 @@ updates
     - ./lib/mongodb.js <-- this file contains utility helper for the mongoDB
     - ./.env.local <-- environment variables containg the connection string for the locally hosted db
     - implmeneted a test file under api named test varify function, passed
+0.3
+    - added navbar to layout.js
+    - added 3 classes to database
+    - made a container on index to dispaly the available course and changed themes for a cybpunk feel
+    - full theme reset for cyberpunk feel
+    - added button styling

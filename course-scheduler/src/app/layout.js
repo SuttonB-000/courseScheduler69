@@ -1,4 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,11 +20,53 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <div>
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+     {/* NAVBAR */}
+      <nav className="flex gap-6 p-4 border-b border-[var(--border)] justify-center bg-black/20 backdrop-blur-md">
+        
+        <Link
+          href="/"
+          className="
+            text-[var(--foreground)]
+            px-3 py-1
+            rounded-md
+            transition-all duration-200
+            hover:text-[var(--accent)]
+            hover:shadow-[0_0_8px_rgba(0,245,255,0.4)]
+            hover:bg-white/5
+          "
+        >
+          Home
+        </Link>
+
+        <Link
+          href="/login"
+          className="
+            text-[var(--foreground)]
+            px-3 py-1
+            rounded-md
+            transition-all duration-200
+            hover:text-[var(--accent-2)]
+            hover:shadow-[0_0_8px_rgba(255,43,214,0.4)]
+            hover:bg-white/5
+          "
+        >
+          Login
+        </Link>
+
+      </nav>
+      <div>
+        {/* A CONTAINER TO DISPLAY AVAILABLE COURSES */}
+        
+      </div>
+
+      <body className="min-h-full flex flex-col"><div className="crt-wrapper">
+        {children}</div></body>
     </html>
+    </div>
   );
 }
