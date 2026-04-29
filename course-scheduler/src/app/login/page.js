@@ -1,8 +1,9 @@
 // no empty lines above this
 "use client";
-// this generative ai, will need to varify compatibility
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+
 
 export default function LoginPage() {
   const router = useRouter();
@@ -31,7 +32,7 @@ export default function LoginPage() {
     }
 
     // Redirect based on role
-    if (data.role === "teacher") { //I beleive there is an error here
+    if (data.role === "teacher") {
       router.push("/teacher");
     } else {
       router.push("/student");

@@ -18,3 +18,8 @@ updates
     - added 6 users to the databse, 3 teachers and 3 students 
     - created the login page to redirect base off role of user
     - added a script to create and populate a sample mongoDB databse using the collections I have been testing with
+
+0.5
+    - added crud interface to the teacher page
+    - added add/drop courses section to students
+    
