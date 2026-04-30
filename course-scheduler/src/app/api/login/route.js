@@ -45,7 +45,7 @@ export async function POST(req) {
     const body = await req.json();
 
     const client = await clientPromise;
-    const db = client.db("users");
+    const db = client.db("school"); //changed users to school
 
     const user = await db.collection("users").findOne({
       username: body.username,

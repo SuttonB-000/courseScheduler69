@@ -20,13 +20,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <div>
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-     {/* NAVBAR */}
-      <nav className="flex gap-6 p-4 border-b border-[var(--border)] justify-center bg-black/20 backdrop-blur-md">
+      <body className="min-h-full flex flex-col">
+        <nav className="flex gap-6 p-4 border-b border-[var(--border)] justify-center bg-black/20 backdrop-blur-md">
         
         <Link
           href="/"
@@ -58,15 +57,12 @@ export default function RootLayout({ children }) {
           Login
         </Link>
 
-      </nav>
-      <div>
-        {/* A CONTAINER TO DISPLAY AVAILABLE COURSES */}
+        </nav>
         
-      </div>
-
-      <body className="min-h-full flex flex-col"><div className="crt-wrapper">
-        {children}</div></body>
+        <div className="crt-wrapper">
+          {children}
+        </div>
+      </body>
     </html>
-    </div>
   );
 }

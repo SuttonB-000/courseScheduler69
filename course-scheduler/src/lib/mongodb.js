@@ -31,16 +31,18 @@ if (!uri) {
  * In development mode, Next.js hot-reloads files constantly.
  * Without caching the connection, you'd create tons of DB connections.
  *
- * So we store it globally to reuse it across reloads.
+ * So we store BOTH the client AND the promise globally to reuse them.
  */
 if (process.env.NODE_ENV === "development") {
   // If no cached connection exists, create one
-  if (!global._mongoClientPromise) {
+  if (!global._mongoClient) {
     client = new MongoClient(uri, options);
+    global._mongoClient = client;  // ← Store the CLIENT, not just the promise
     global._mongoClientPromise = client.connect();
   }
 
   // Reuse cached connection
+  client = global._mongoClient;
   clientPromise = global._mongoClientPromise;
 } else {
   /**

@@ -10,9 +10,11 @@ export default function StudentPage() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
+    const controller = new AbortController();
+
     async function loadData() {
       try {
-        const meRes = await fetch("/api/me");
+        const meRes = await fetch("/api/me", { signal: controller.signal });
         const meData = await meRes.json();
 
         const courseRes = await fetch("/api/courses");
@@ -21,13 +23,17 @@ export default function StudentPage() {
         setUser(meData);
         setCourses(courseData);
       } catch (err) {
-        console.error("Failed to load student data:", err);
+        if (err.name !== "AbortError") {
+          console.error("Failed to load student data:", err);
+        }
       } finally {
         setLoading(false);
       }
     }
 
     loadData();
+
+    return () => controller.abort(); // Cleanup on unmount
   }, []);
 
   async function handleRegister() {
