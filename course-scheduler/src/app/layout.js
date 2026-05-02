@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import SignOutButton from "@/components/SignOutButton"; // ✅ import client component
 
 import "./globals.css";
 
@@ -26,39 +27,42 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <nav className="flex gap-6 p-4 border-b border-[var(--border)] justify-center bg-black/20 backdrop-blur-md">
-        
-        <Link
-          href="/"
-          className="
-            text-[var(--foreground)]
-            px-3 py-1
-            rounded-md
-            transition-all duration-200
-            hover:text-[var(--accent)]
-            hover:shadow-[0_0_8px_rgba(0,245,255,0.4)]
-            hover:bg-white/5
-          "
-        >
-          Home
-        </Link>
+          
+          <Link
+            href="/"
+            className="
+              text-[var(--foreground)]
+              px-3 py-1
+              rounded-md
+              transition-all duration-200
+              hover:text-[var(--accent)]
+              hover:shadow-[0_0_8px_rgba(0,245,255,0.4)]
+              hover:bg-white/5
+            "
+          >
+            Home
+          </Link>
 
-        <Link
-          href="/login"
-          className="
-            text-[var(--foreground)]
-            px-3 py-1
-            rounded-md
-            transition-all duration-200
-            hover:text-[var(--accent-2)]
-            hover:shadow-[0_0_8px_rgba(255,43,214,0.4)]
-            hover:bg-white/5
-          "
-        >
-          Login
-        </Link>
+          <Link
+            href="/login"
+            className="
+              text-[var(--foreground)]
+              px-3 py-1
+              rounded-md
+              transition-all duration-200
+              hover:text-[var(--accent-2)]
+              hover:shadow-[0_0_8px_rgba(255,43,214,0.4)]
+              hover:bg-white/5
+            "
+          >
+            Login
+          </Link>
+
+          {/* ✅ Client-side logout button */}
+          <SignOutButton />
 
         </nav>
-        
+
         <div className="crt-wrapper">
           {children}
         </div>

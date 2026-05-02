@@ -22,4 +22,6 @@ updates
 0.5
     - added crud interface to the teacher page
     - added add/drop courses section to students
-    
+
+0.6
+    - added sign out function to clear cookie function and gave cookies a life span
