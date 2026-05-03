@@ -25,3 +25,16 @@ updates
 
 0.6
     - added sign out function to clear cookie function and gave cookies a life span
+
+0.7
+    - fixed bug in api/me, line 22 changed "users" to "school"
+    - created new api route "registrations/routes.js"
+    - addressed a bug in "student/page.js" to calldb items as strings, line 133
+    - updated toggleCourse function in "student/page" to reflect other changes
+    - found issue with the database(s). There exist two databases school and users. Moving information from users to new collection under school named users
+    - hashed user passwords
+    - updated ".env.local" to target specifically "school" db.  
+    - added password encryption
+
+0.8
+    - adding feature to associate students with a class when clicking register

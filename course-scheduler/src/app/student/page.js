@@ -62,13 +62,13 @@ export default function StudentPage() {
     }
   }
 
-  function toggleCourse(id) {
-    setSelectedCourses((prev) =>
-      prev.includes(id)
-        ? prev.filter((c) => c !== id)
-        : [...prev, id]
-    );
-  }
+function toggleCourse(id) {
+  setSelectedCourses((prev) =>
+    prev.includes(id)
+      ? prev.filter((c) => c !== id)
+      : [...prev, id]
+  );
+}
 
   if (loading) {
     return (
@@ -129,7 +129,10 @@ export default function StudentPage() {
 
               <tbody className="divide-y divide-gray-700">
                 {courses.map((course) => {
-                  const isSelected = selectedCourses.includes(course._id);
+                  // const isSelected = selectedCourses.includes(course._id);
+                  const id = course._id.toString();
+                  const isSelected = selectedCourses.includes(id);
+
 
                   return (
                     <tr
