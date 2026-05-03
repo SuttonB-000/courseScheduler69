@@ -38,3 +38,4 @@ updates
 
 0.8
     - adding feature to associate students with a class when clicking register
+    - added a script that adds a unique for the registration
