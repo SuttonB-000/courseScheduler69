@@ -90,7 +90,7 @@ export default function StudentPage() {
     <div style={styles.container}>
       <div style={styles.card}>
         <h1 style={styles.title}>
-          Welcome{user?.name ? ` ${user.name}` : ""}
+          Welcome{user?.username ? ` ${user.username}` : ""}
         </h1>
 
         <h2 style={styles.subtitle}>Available Courses</h2>
@@ -101,7 +101,7 @@ export default function StudentPage() {
             setEditingCourse({
               code: "",
               courseTitle: "",
-              instructorId: "",
+              instructorId: user?.username || "",
               subjectArea: "",
               courseDescription: "",
               credits: "",
@@ -163,7 +163,6 @@ export default function StudentPage() {
                       {course.credits}
                     </td>
 
-                    {/* ACTIONS */}
                     <td className="px-4 py-3">
                       <button
                         onClick={() => handleEdit(course)}
@@ -218,16 +217,12 @@ export default function StudentPage() {
                 className="p-2 bg-black border"
               />
 
+              {/* FIXED: instructor auto-filled + read-only */}
               <input
                 placeholder="Instructor"
                 value={editingCourse.instructorId || ""}
-                onChange={(e) =>
-                  setEditingCourse({
-                    ...editingCourse,
-                    instructorId: e.target.value,
-                  })
-                }
-                className="p-2 bg-black border"
+                readOnly
+                className="p-2 bg-black border opacity-70 cursor-not-allowed"
               />
 
               <input

@@ -71,13 +71,13 @@ export async function POST(req) {
       { expiresIn: "7d" }
     );
 
-    // 🍪 RESPONSE
+    // response
     const response = NextResponse.json({
       username: foundUser.username,
       role: foundUser.role,
     });
 
-    // 🍪 COOKIE
+    // cookie
     response.cookies.set("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
